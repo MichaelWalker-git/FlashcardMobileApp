@@ -3,13 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import Home from "./Components/Home";
 import {StackNavigator} from "react-navigation";
 import DeckView from "./Components/DeckView";
-import {purple, white} from "./utils/colors";
+import {black, purple, white} from "./utils/colors";
+import Quiz from "./Components/Quiz";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Home/>
+				<Quiz/>
       </View>
     );
   }
@@ -29,7 +30,6 @@ const MainNavigator = StackNavigator({
 		}
 	}
 });
-
 
 const styles = StyleSheet.create({
   container: {

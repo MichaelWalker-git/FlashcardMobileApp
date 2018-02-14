@@ -87,8 +87,7 @@ class Home extends Component {
 					onPress={this.onPressAddNewDeck}
 					title="Add New Deck"
 					color="#841584"
-					accessibilityLabel="Add New Deck"
-				/>
+					accessibilityLabel="Add New Deck"/>
 				{/*<Carousel*/}
 					{/*ref={c => this._slider1Ref = c}*/}
 					{/*data={this.state.entries}*/}
