@@ -79,13 +79,13 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	flipCard: {
-		width: 400,
-		height: 400,
+		width: 370,
+		height: 370,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'blue',
 		backfaceVisibility: 'hidden',
-		borderRadius
+		borderRadius: 4,
 	},
 	flipCardBack: {
 		backgroundColor: "red",
