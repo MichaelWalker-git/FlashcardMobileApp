@@ -6,7 +6,7 @@ import AddDeck from "./AddDeck";
 class DeckView extends Component {
 	state = {
 		deck: {
-			title: '',
+			title: 'Carried interest',
 			questions: [{
 				question: 'Describe BS Tree?',
 				answer: 'Blah blah'
@@ -97,7 +97,7 @@ class DeckView extends Component {
 							<Text>Questions</Text>
 							{deck.questions.map((card) => (
 								<View>
-									<ListView
+									<View
 										dataSource={card}
 										renderRow={this.renderRow} />
 								</View>
