@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, StyleSheet, TouchableHighlight, ListView} from "react-native";
 import Swipeout from 'react-native-swipeout';
-import AddEditQuestion from "./AddEditQuestion";
 
 class DeckView extends Component {
 	state = {
