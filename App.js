@@ -6,6 +6,7 @@ import {purple, white} from "./utils/colors";
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
 import AddEditQuestion from "./Components/AddEditQuestion";
 import DeckView from "./Components/DeckView";
+import AddDeck from "./Components/AddDeck";
 
 const Tabs = TabNavigator({
 		Home: {
@@ -17,8 +18,8 @@ const Tabs = TabNavigator({
 																							 size={30}/>
 			}
 		},
-		AddEntry: {
-			screen: AddEditQuestion,
+		AddDeck: {
+			screen: AddDeck,
 			navigationOptions: {
 				tabBarLabel: 'Add Deck',
 				tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square'
@@ -54,7 +55,7 @@ const MainNavigator = StackNavigator({
 		screen: Tabs,
 	},
 	AddDeck: {
-		screen: DeckView,
+		screen: AddDeck,
 		navigationOptions: {
 			headerTintColor: white,
 			headerStyle: {
@@ -62,7 +63,7 @@ const MainNavigator = StackNavigator({
 			}
 		}
 	},
-	ViewDeck: {
+	DeckView: {
 		screen: DeckView,
 		navigationOptions: {
 			headerTintColor: white,

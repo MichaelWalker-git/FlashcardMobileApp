@@ -74,7 +74,7 @@ class Home extends Component {
 			<View>
 				{this.state.entries.map((deck, index) => (
 					<TouchableOpacity  key={deck.title}
-														 onPress={()=> this.props.navigation.navigate('ViewDeck', { entryId: deck})}>
+														 onPress={()=> this.props.navigation.navigate('DeckView', { deck})}>
 						<View>
 							<Text>{deck.numOfCards}</Text>
 							<Text>{deck.title}</Text>
@@ -86,7 +86,7 @@ class Home extends Component {
 					<Text>{this.state.entries.length} Decks</Text>
 				</View>
 				<Button
-					onPress={this.onPressAddNewDeck}
+					onPress={()=> this.props.navigation.navigate('DeckView')}
 					title="Add New Deck"
 					color="#841584"
 					accessibilityLabel="Add New Deck"/>

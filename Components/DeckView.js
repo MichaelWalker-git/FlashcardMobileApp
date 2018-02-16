@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View, StyleSheet, TouchableHighlight, ListView} from "react-native";
 import Swipeout from 'react-native-swipeout';
+import AddDeck from "./AddDeck";
 
 class DeckView extends Component {
 	state = {
 		deck: {
-			title: 'Deck title',
-			flashcards: [{question: 'Describe BS Tree?', answer: 'Blah blah'}],
+			title: '',
+			questions: [{
+				question: 'Describe BS Tree?',
+				answer: 'Blah blah'
+			}
+				],
 			scores: [{date: '12/4/2018', score: {correct: 10, totalNumber: 15}}]
 		},
 	};
+
+	componentDidMount(){
+		this.setState({deck: this.props.deck});
+	}
 
 	onPress = () => {
 
@@ -60,36 +69,41 @@ class DeckView extends Component {
 
 		return(
 			<View style={styles.container}>
-				<View>
-					<Text>{deck.title}</Text>
-					<Text>{deck.flashcards.length} Total Flashcards</Text>
-				</View>
-				<View>
-					<Text>Past Scores</Text>
-					<View style={styles.scoreTable}>
+				{this.props.deck ?
+					<AddDeck/>
+					:
+					<View>
 						<View>
-							<Text>Date</Text>
+							<Text>{deck.title}</Text>
+							<Text>{deck.questions.length} Total Flashcards</Text>
 						</View>
 						<View>
-							<Text>Score</Text>
+							<Text>Past Scores</Text>
+							<View style={styles.scoreTable}>
+								<View>
+									<Text>Date</Text>
+								</View>
+								<View>
+									<Text>Score</Text>
+								</View>
+							</View>
+							<TouchableOpacity
+								style={styles.button}
+								onPress={this.onPress}>
+								<Text> Start Quiz </Text>
+							</TouchableOpacity>
 						</View>
-					</View>
-					<TouchableOpacity
-						style={styles.button}
-						onPress={this.onPress}>
-						<Text> Start Quiz </Text>
-					</TouchableOpacity>
-				</View>
-				<View>
-					<Text>Questions</Text>
-					{deck.flashcards.map((card) => (
 						<View>
-							<ListView
-								dataSource={card}
-								renderRow={this.renderRow} />
+							<Text>Questions</Text>
+							{deck.questions.map((card) => (
+								<View>
+									<ListView
+										dataSource={card}
+										renderRow={this.renderRow} />
+								</View>
+							))}
 						</View>
-					))}
-				</View>
+				</View>}
 			</View>
 		)
 	}
