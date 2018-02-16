@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Dimensions, Button} from "react-native";
+import {Text, View, StyleSheet, Dimensions, Button, TouchableOpacity} from "react-native";
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 
@@ -72,19 +72,21 @@ class Home extends Component {
 	render () {
 		return (
 			<View>
-				{this.state.entries.map((deck) => (
-					<View>
-						<Text>{deck.numOfCards}</Text>
-						<Text>{deck.title}</Text>
-						<Text>Best Score: {deck.bestScore}%</Text>
-						<Text></Text>
-					</View>
+				{this.state.entries.map((deck, index) => (
+					<TouchableOpacity  key={deck.title}
+														 onPress={()=> this.props.navigation.navigate('DeckView', { deck})}>
+						<View>
+							<Text>{deck.numOfCards}</Text>
+							<Text>{deck.title}</Text>
+							<Text>Best Score: {deck.bestScore}%</Text>
+						</View>
+					</TouchableOpacity>
 				))}
 				<View>
 					<Text>{this.state.entries.length} Decks</Text>
 				</View>
 				<Button
-					onPress={this.onPressAddNewDeck}
+					onPress={()=> this.props.navigation.navigate('DeckView')}
 					title="Add New Deck"
 					color="#841584"
 					accessibilityLabel="Add New Deck"/>
