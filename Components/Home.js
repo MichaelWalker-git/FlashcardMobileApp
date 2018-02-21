@@ -3,7 +3,7 @@ import {
 	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList
 } from "react-native";
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {GetDecks} from "../utils/api";
+import {GetAllDecks, RemoveDeck} from "../utils/api";
 import { List, ListItem } from "react-native-elements";
 
 
@@ -23,51 +23,13 @@ export const itemWidth = slideWidth + itemHorizontalMargin * 2;
 class Home extends Component {
 	state = {
 		slider1ActiveSlide: 1,
-		decks: [
-			{
-				title: 'Beautiful and dramatic Antelope Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 10 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 11 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 22 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 2 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 33 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-			{
-				title: 'Beautiful and dramatic 3 Canyon',
-				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
-			},
-		],
+		decks: [],
 	};
 
 	componentDidMount(){
-		// GetAllDecks
-		GetDecks().then((response) =>{
-			console.log(response, "Initial state")
-		})
-	}
-
-	_renderItem ({item, index}) {
-		return (
-			<View style={styles.slide}>
-				<Text style={styles.title}>{ item.title }</Text>
-			</View>
-		);
+		GetAllDecks().then((response) => {
+			this.setState({decks: response});
+		});
 	}
 
 	render () {
@@ -75,24 +37,20 @@ class Home extends Component {
 			<View style={styles.numOfDecksHeader}>
 				<Text style={styles.title}>{this.state.decks.length} Decks</Text>
 			</View>
-			{/*{this.state.decks.map((deck, index) => (*/}
-				{/*<View key={index} style={styles.deckList}>*/}
-					{/*<TouchableOpacity key={deck.title}*/}
-														{/*onPress={() => this.props.navigation.navigate('DeckView', {deck: deck})}>*/}
-						{/*<Text>Number of Questions: {deck.questions.length}</Text>*/}
-						{/*<Text>{deck.title}</Text>*/}
-						{/*<Text>Best Score: 90%</Text>*/}
-					{/*</TouchableOpacity>*/}
-				{/*</View>))}*/}
-				<FlatList data={this.state.decks}
-									renderItem={({ item }) => (
-										<ListItem
-											title={`${item.name.first} ${item.name.last}`}
-											subtitle={item.email}
-										/>
+			{this.state.decks &&
+			<FlatList keyExtractor={(item, index) => index}
+								data={this.state.decks}
+								renderItem={({item}) => (
+										<View style={styles.deckList}>
+											<TouchableOpacity key={item.title}
+											onPress={() => this.props.navigation.navigate('DeckView', {deck: item})}>
+												<Text>Number of Questions: {item.questions.length}</Text>
+												<Text>{item.title}</Text>
+												<Text>Best Score: 90%</Text>
+											</TouchableOpacity>
+										</View>
 									)}
-				/>
-				</FlatList>
+				/>}
 			<Button
 				onPress={() => this.props.navigation.navigate('AddDeck')}
 				title="Add New Deck"

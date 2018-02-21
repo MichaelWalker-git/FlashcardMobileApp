@@ -7,18 +7,33 @@ const FLASHCARD_STORAGE_KEY = 'Flashcards:Algorithms';
  * @returns {*|Promise}
  * @constructor
  */
-export function GetDecks () {
+export function GetAllDecks() {
 	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
+		.then((response) => Object.values(JSON.parse(response)));
 }
 
 /**
  * Takes in deck id and returns deck.
- * @param {number} id
+ * @param {number} title
  * @export
  */
-export function GetDeck(id){
-	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY, title);
+export function GetDeck(title){
+	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
+		.then((deck) => {
+			const item = JSON.parse(deck);
+			return item[title];
+		}).catch(() => console.error('No deck by that name'));
 }
+
+/**
+ * Removes a particular deck from the list.
+ * @param {string} title
+ * @export
+ */
+export function RemoveDeck(title){
+	return AsyncStorage.removeItem(FLASHCARD_STORAGE_KEY, title);
+}
+
 
 /**
  * Creates a new deck entity with a template object.
@@ -42,10 +57,10 @@ export function saveDeckTitle ({title}) {
  * @returns {Promise<*>|Promise<T>}
  */
 export function addQuestionToDeck ({title, card}) {
-	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY, title)
+	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
 		.then((deck) => {
 			const data = JSON.parse(deck);
-			data.questions.push(card);
+			data[title].questions.push(card);
 			AsyncStorage.setItem(FLASHCARD_STORAGE_KEY, JSON.stringify(data));
 		});
 }

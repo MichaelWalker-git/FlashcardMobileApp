@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View, Platform} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Platform} from 'react-native';
 import Home from "./Components/Home";
 import {StackNavigator, TabNavigator} from "react-navigation";
 import {purple, white} from "./utils/colors";
@@ -7,8 +7,8 @@ import {FontAwesome, Ionicons} from '@expo/vector-icons';
 import AddEditQuestion from "./Components/AddEditQuestion";
 import DeckView from "./Components/DeckView";
 import AddDeck from "./Components/AddDeck";
-import Quiz from "./Components/Quiz";
 import QuizContainer from "./Components/QuizContainer";
+import {GetAllDecks} from "./utils/api";
 
 const Tabs = TabNavigator({
 		Home: {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, View, StyleSheet, TouchableHighlight, ListView} from "react-native";
+import {Text, TouchableOpacity, View, StyleSheet, TouchableHighlight, ListView, FlatList} from "react-native";
 import Swipeout from 'react-native-swipeout';
 import AddDeck from "./AddDeck";
 
@@ -92,15 +92,19 @@ class DeckView extends Component {
 					</View>
 					<View>
 						<Text>Questions</Text>
-						{this.state.deck.questions.map((card, index) => (
-							<View key={index}>
-								<Text>Question: {card.question}</Text>
-								<Text>Answer: {card.answer}</Text>
-							</View>
-						))}
+						{this.state.deck.questions &&
+						<FlatList keyExtractor={(item, index) => index}
+											data={this.state.deck.questions}
+											renderItem={({item}, index) => (
+												<View key={index}>
+													<Text>Question: {item.question}</Text>
+													<Text>Answer: {item.answer}</Text>
+												</View>
+											)}
+						/>}
 						<TouchableOpacity
 							style={styles.button}
-							onPress={() => this.props.navigation.navigate('AddEditQuestion')}>
+							onPress={() => this.props.navigation.navigate('AddEditQuestion', {quiz: this.state.deck})}>
 							<Text> Add Question </Text>
 						</TouchableOpacity>
 					</View>
