@@ -6,33 +6,28 @@ import * as NavigationActions from "react-navigation";
 
 class AddDeck extends Component {
 	state = {
-		deckName: '',
+		deckName: 'Test123',
 	};
 
 	/**
 	 * Saves our new deck to local storage.
 	 */
 	saveDeck = () => {
-		this.saveDeckTitle(this.state.deckName).then((response) => {
-			this.props.navigation.NavigationActions.back({key: 'AddEntry'})
+		saveDeckTitle({title: this.state.deckName}).then((response) => {
+			this.props.navigation.goBack();
 		});
 	};
-
-	/**
-	 * Takes in the input and sets it to local state.
-	 * @param {!Event} e
-	 */
-	handleChange = (e) => {
-		this.setState({deckName: e.target.value});
-	};
-
 
 	render() {
 		return (
 			<View>
 				<Text>What is the title of your new deck?</Text>
-				<TextInput placeholder='Deck name' value={this.state.deckName} onChange={this.handleChange}/>
-				<TextButton onClick={this.saveDeck}>
+				<TextInput placeholder='Deck name' value={this.state.deckName}
+									 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+									 autoFocus={true}
+									 clearButtonMode='unless-editing'
+									 onChangeText={(text) => this.setState({deckName: text})}/>
+				<TextButton onPress={this.saveDeck}>
 					<Text>Save this deck</Text>
 				</TextButton>
 			</View>

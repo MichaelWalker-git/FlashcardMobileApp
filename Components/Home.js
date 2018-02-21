@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList} from "react-native";
+import {
+	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList
+} from "react-native";
 import Carousel, {Pagination} from 'react-native-snap-carousel';
+import {GetDecks} from "../utils/api";
+import { List, ListItem } from "react-native-elements";
+
 
 function wp (percentage) {
 	const value = (percentage * viewportWidth) / 100;
@@ -21,34 +26,40 @@ class Home extends Component {
 		decks: [
 			{
 				title: 'Beautiful and dramatic Antelope Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
 			},
 			{
 				title: 'Beautiful and dramatic 10 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
-			},		{
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
+			},
+			{
 				title: 'Beautiful and dramatic 11 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
-			},		{
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
+			},
+			{
 				title: 'Beautiful and dramatic 22 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
-			},		{
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
+			},
+			{
 				title: 'Beautiful and dramatic 2 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
 			},
 			{
 				title: 'Beautiful and dramatic 33 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
 			},
 			{
 				title: 'Beautiful and dramatic 3 Canyon',
-				questions: {question: 'What is the meaning of life?', answer: 'exist, discover, love'}
+				questions: [{question: 'What is the meaning of life?', answer: 'exist, discover, love'}]
 			},
 		],
 	};
 
 	componentDidMount(){
 		// GetAllDecks
+		GetDecks().then((response) =>{
+			console.log(response, "Initial state")
+		})
 	}
 
 	_renderItem ({item, index}) {
@@ -61,22 +72,29 @@ class Home extends Component {
 
 	render () {
 		return <View>
-			<FlatList
-				data={this.state.decks}
-				renderItem={(deck) => (
-					<TouchableOpacity key={deck.title}
-														onPress={() => this.props.navigation.navigate('DeckView', {deck: deck})}>
-						<Text>{deck.questions.length}</Text>
-						<Text>{deck.title}</Text>
-						<Text>Best Score: 90%</Text>
-					</TouchableOpacity>
-				)}
-			/>
-			<View>
-				<Text>{this.state.decks.length} Decks</Text>
+			<View style={styles.numOfDecksHeader}>
+				<Text style={styles.title}>{this.state.decks.length} Decks</Text>
 			</View>
+			{/*{this.state.decks.map((deck, index) => (*/}
+				{/*<View key={index} style={styles.deckList}>*/}
+					{/*<TouchableOpacity key={deck.title}*/}
+														{/*onPress={() => this.props.navigation.navigate('DeckView', {deck: deck})}>*/}
+						{/*<Text>Number of Questions: {deck.questions.length}</Text>*/}
+						{/*<Text>{deck.title}</Text>*/}
+						{/*<Text>Best Score: 90%</Text>*/}
+					{/*</TouchableOpacity>*/}
+				{/*</View>))}*/}
+				<FlatList data={this.state.decks}
+									renderItem={({ item }) => (
+										<ListItem
+											title={`${item.name.first} ${item.name.last}`}
+											subtitle={item.email}
+										/>
+									)}
+				/>
+				</FlatList>
 			<Button
-				onPress={() => this.props.navigation.navigate('DeckView')}
+				onPress={() => this.props.navigation.navigate('AddDeck')}
 				title="Add New Deck"
 				color="#841584"
 				accessibilityLabel="Add New Deck"/>
@@ -114,6 +132,13 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
 	slide: { },
+	deckList: {
+		padding: 10
+	},
+	numOfDecksHeader: {
+		justifyContent: 'center',
+		flexDirection: 'row',
+	},
 	title: {
 		color: '#1a1917',
 		fontSize: 13,

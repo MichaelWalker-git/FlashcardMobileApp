@@ -6,23 +6,29 @@ import {
 	TouchableOpacity,
 	Animated
 } from 'react-native';
+import TextButton from "./TextButton";
 
 class Quiz extends Component {
+	state = {
+		cardHasBeenFlipped: false,
+	};
+
 	componentWillMount() {
 		this.animatedValue = new Animated.Value(0);
 		this.value = 0;
 		this.animatedValue.addListener(({ value }) => {
 			this.value = value;
-		})
+		});
 		this.frontInterpolate = this.animatedValue.interpolate({
 			inputRange: [0, 180],
 			outputRange: ['0deg', '180deg'],
-		})
+		});
 		this.backInterpolate = this.animatedValue.interpolate({
 			inputRange: [0, 180],
 			outputRange: ['180deg', '360deg']
-		})
+		});
 	}
+
 	flipCard() {
 		if (this.value >= 90) {
 			Animated.spring(this.animatedValue, {
@@ -30,6 +36,7 @@ class Quiz extends Component {
 				friction: 8,
 				tension: 10
 			}).start();
+			this.setState({cardHasBeenFlipped: true})
 		} else {
 			Animated.spring(this.animatedValue, {
 				toValue: 180,
@@ -52,21 +59,39 @@ class Quiz extends Component {
 		};
 		return (
 			<View style={styles.container}>
+				<Text>{this.props.title}</Text>
 				<TouchableOpacity onPress={() => this.flipCard()}>
 					<Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
 						<Text style={styles.flipText}>
-							Question
+							{this.props.question.question}
 						</Text>
 					</Animated.View>
 					<Animated.View style={[backAnimatedStyle, styles.flipCard, styles.flipCardBack]}>
 						<Text style={styles.flipText}>
-							Answer
+							{this.props.question.answer}
 						</Text>
 					</Animated.View>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => this.flipCard()}>
-					<Text>Flip!</Text>
-				</TouchableOpacity>
+
+				<View>
+					<TouchableOpacity onPress={() => this.flipCard()}>
+						<Text>Flip!</Text>
+					</TouchableOpacity>
+					{this.state.cardHasBeenFlipped ?
+						<View>
+							<Text>Did you get it correct?</Text>
+							<View>
+								<TextButton onClick={this.props.addQuizPoint}>
+									<Text>Yes</Text>
+								</TextButton>
+								<TextButton onClick={this.props.decreaseQuizPoint}>
+									<Text>No</Text>
+								</TextButton>
+							</View>
+						</View> :
+						<View/>
+					}
+				</View>
 			</View>
 		);
 	}
@@ -74,6 +99,7 @@ class Quiz extends Component {
 
 const styles = StyleSheet.create({
 	container: {
+		paddingTop: 10,
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",

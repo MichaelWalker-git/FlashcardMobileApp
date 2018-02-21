@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {Text, View} from "react-native";
+import {Text, TextInput, View} from "react-native";
 import TextButton from "./TextButton";
 
 class AddEditQuestion extends Component {
 
-	save= () => {
+	save = () => {
 
 	};
 
@@ -18,11 +18,11 @@ class AddEditQuestion extends Component {
 				<View>
 					<View>
 						<Text>Question...</Text>
-						<Text>Placeholder for question...</Text>
+						<TextInput placeholder='Placeholder for question...'/>
 					</View>
 					<View>
 						<Text>Answer:</Text>
-						<Text>Placeholder text for answer...</Text>
+						<TextInput placeholder='Placeholder for Answer...'/>
 					</View>
 					<TextButton style={{padding: 10, alignContent: 'center'}} onPress={this.save}>
 						Save

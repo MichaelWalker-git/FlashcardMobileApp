@@ -17,7 +17,9 @@ class DeckView extends Component {
 	};
 
 	componentDidMount(){
-		this.setState({deck: this.props.deck});
+		if(this.props.navigation.state.params.deck){
+			this.setState({deck: this.props.navigation.state.params.deck});
+		}
 	}
 
 	onPress = () => {
@@ -65,45 +67,44 @@ class DeckView extends Component {
 	};
 
 	render() {
-		const { deck } = this.state;
-
 		return(
 			<View style={styles.container}>
-				{this.props.deck ?
-					<AddDeck/>
-					:
+				<View>
 					<View>
-						<View>
-							<Text>{deck.title}</Text>
-							<Text>{deck.questions.length} Total Flashcards</Text>
-						</View>
-						<View>
-							<Text>Past Scores</Text>
-							<View style={styles.scoreTable}>
-								<View>
-									<Text>Date</Text>
-								</View>
-								<View>
-									<Text>Score</Text>
-								</View>
+						<Text>{this.state.deck.title}</Text>
+						<Text>{this.state.deck.questions.length} Total Flashcards</Text>
+					</View>
+					<View>
+						<Text>Past Scores</Text>
+						<View style={styles.scoreTable}>
+							<View>
+								<Text>Date</Text>
 							</View>
-							<TouchableOpacity
-								style={styles.button}
-								onPress={this.onPress}>
-								<Text> Start Quiz </Text>
-							</TouchableOpacity>
+							<View>
+								<Text>Score</Text>
+							</View>
 						</View>
-						<View>
-							<Text>Questions</Text>
-							{deck.questions.map((card) => (
-								<View>
-									<View
-										dataSource={card}
-										renderRow={this.renderRow} />
-								</View>
-							))}
-						</View>
-				</View>}
+						<TouchableOpacity
+							style={styles.button}
+							onPress={() => this.props.navigation.navigate('QuizContainer', {quiz: this.state.deck})}>
+							<Text> Start Quiz </Text>
+						</TouchableOpacity>
+					</View>
+					<View>
+						<Text>Questions</Text>
+						{this.state.deck.questions.map((card, index) => (
+							<View key={index}>
+								<Text>Question: {card.question}</Text>
+								<Text>Answer: {card.answer}</Text>
+							</View>
+						))}
+						<TouchableOpacity
+							style={styles.button}
+							onPress={() => this.props.navigation.navigate('AddEditQuestion')}>
+							<Text> Add Question </Text>
+						</TouchableOpacity>
+					</View>
+				</View>
 			</View>
 		)
 	}
