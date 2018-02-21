@@ -37,15 +37,41 @@ class Quiz extends Component {
 				friction: 8,
 				tension: 10
 			}).start();
-			this.setState({cardHasBeenFlipped: true})
+			this.setState((state) => {
+				return {...state, cardHasBeenFlipped: !state.cardHasBeenFlipped}});
 		} else {
 			Animated.spring(this.animatedValue, {
 				toValue: 180,
 				friction: 8,
 				tension: 10
 			}).start();
+			this.setState((state) => {
+				return {...state, cardHasBeenFlipped: !state.cardHasBeenFlipped}});
 		}
 	}
+
+	/**
+	 * Correct question increases the counter.
+	 */
+	correctQuestion = () => {
+		this.resetQuestion();
+		this.props.addQuizPoint();
+	};
+
+	/**
+	 * Routes to next question.
+	 */
+	incorrectQuestion = () => {
+		this.resetQuestion();
+		this.props.decreaseQuizPoint();
+	};
+
+	/**
+	 * Resets quiz ask buttons.
+	 */
+	resetQuestion = () => {
+		this.flipCard();
+	};
 
 	render() {
 		const frontAnimatedStyle = {
@@ -83,10 +109,10 @@ class Quiz extends Component {
 						<View>
 							<Text>Did you get it correct?</Text>
 							<View>
-								<TextButton onClick={this.props.addQuizPoint}>
+								<TextButton onPress={() => this.correctQuestion()}>
 									<Text>Yes</Text>
 								</TextButton>
-								<TextButton onClick={this.props.decreaseQuizPoint}>
+								<TextButton onPress={() => this.incorrectQuestion()}>
 									<Text>No</Text>
 								</TextButton>
 							</View>

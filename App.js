@@ -8,7 +8,7 @@ import AddEditQuestion from "./Components/AddEditQuestion";
 import DeckView from "./Components/DeckView";
 import AddDeck from "./Components/AddDeck";
 import QuizContainer from "./Components/QuizContainer";
-import {GetAllDecks} from "./utils/api";
+import Notifications from "./Components/Notifications";
 
 const Tabs = TabNavigator({
 		Home: {
@@ -27,6 +27,15 @@ const Tabs = TabNavigator({
 				tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square'
 																									color={tintColor}
 																									size={30}/>
+			}
+		},
+		Notifications: {
+			screen: Notifications,
+			navigationOptions: {
+				tabBarLabel: 'Add Deck',
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-speedometer'
+																							 color={tintColor}
+																							 size={30}/>
 			}
 		},
 	}, {

@@ -95,6 +95,7 @@ class DeckView extends Component {
 						{this.state.deck.questions &&
 						<FlatList keyExtractor={(item, index) => index}
 											data={this.state.deck.questions}
+											style={styles.questionList}
 											renderItem={({item}, index) => (
 												<View key={index}>
 													<Text>Question: {item.question}</Text>
@@ -115,6 +116,10 @@ class DeckView extends Component {
 }
 
 const styles = StyleSheet.create({
+	questionList: {
+		paddingTop: 10,
+		paddingBottom: 10
+	},
 	note: {
 
 	},
