@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9c3a487-9737-4762-b6cd-a3cc2feea71f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Components/ErrorQuizPage.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
-      <change beforePath="$PROJECT_DIR$/Components/AddDeck.js" afterPath="$PROJECT_DIR$/Components/AddDeck.js" />
-      <change beforePath="$PROJECT_DIR$/Components/AddEditQuestion.js" afterPath="$PROJECT_DIR$/Components/AddEditQuestion.js" />
-      <change beforePath="$PROJECT_DIR$/Components/DeckView.js" afterPath="$PROJECT_DIR$/Components/DeckView.js" />
-      <change beforePath="$PROJECT_DIR$/Components/Home.js" afterPath="$PROJECT_DIR$/Components/Home.js" />
       <change beforePath="$PROJECT_DIR$/Components/Quiz.js" afterPath="$PROJECT_DIR$/Components/Quiz.js" />
-      <change beforePath="$PROJECT_DIR$/Components/QuizContainer.js" afterPath="$PROJECT_DIR$/Components/QuizContainer.js" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/utils/api.js" afterPath="$PROJECT_DIR$/utils/api.js" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,8 +48,8 @@
           <file leaf-file-name="Quiz.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Components/Quiz.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+                <state relative-caret-position="445">
+                  <caret line="128" column="15" lean-forward="true" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -65,14 +57,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ErrorQuizPage.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Components/ErrorQuizPage.js">
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="360">
+                  <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/package-lock.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="10298" column="27" lean-forward="false" selection-start-line="10298" selection-start-column="27" selection-end-line="10298" selection-end-column="27" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -120,8 +120,8 @@
           <file leaf-file-name="QuizContainer.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Components/QuizContainer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="383">
-                  <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+                <state relative-caret-position="308">
+                  <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -199,7 +199,6 @@
         <option value="$PROJECT_DIR$/utils/colors.js" />
         <option value="$PROJECT_DIR$/Components/Notifications.js" />
         <option value="$PROJECT_DIR$/Components/SideBar.js" />
-        <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/Components/TextButton.js" />
         <option value="$PROJECT_DIR$/Components/QuizEnd.js" />
         <option value="$PROJECT_DIR$/app.json" />
@@ -210,9 +209,10 @@
         <option value="$PROJECT_DIR$/Components/Home.js" />
         <option value="$PROJECT_DIR$/utils/api.js" />
         <option value="$PROJECT_DIR$/Components/AddDeck.js" />
-        <option value="$PROJECT_DIR$/Components/Quiz.js" />
         <option value="$PROJECT_DIR$/Components/QuizContainer.js" />
         <option value="$PROJECT_DIR$/Components/ErrorQuizPage.js" />
+        <option value="$PROJECT_DIR$/Components/Quiz.js" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
       </list>
     </option>
   </component>
@@ -358,12 +358,12 @@
       <updated>1518147521259</updated>
       <workItem from="1518147523208" duration="25126000" />
       <workItem from="1518773231164" duration="9863000" />
-      <workItem from="1519197840138" duration="9128000" />
+      <workItem from="1519197840138" duration="9538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44117000" />
+    <option name="totallyTimeSpent" value="44527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -651,22 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="9219" column="50" lean-forward="false" selection-start-line="9219" selection-start-column="46" selection-end-line="9219" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -733,26 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Components/Quiz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Components/QuizContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Components/ErrorQuizPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -760,6 +724,42 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/QuizContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/Quiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="128" column="15" lean-forward="true" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="10298" column="27" lean-forward="false" selection-start-line="10298" selection-start-column="27" selection-end-line="10298" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

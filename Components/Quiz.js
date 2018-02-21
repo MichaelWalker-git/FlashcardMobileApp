@@ -59,22 +59,23 @@ class Quiz extends Component {
 			]
 		};
 		return (
-			<View style={styles.container}>
+			<View>
 				<Text>{this.props.title}</Text>
-				<TouchableOpacity onPress={() => this.flipCard()}>
-					<Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
-						<Text style={styles.flipText}>
-							{this.props.question.question}
-						</Text>
-					</Animated.View>
-					<Animated.View style={[backAnimatedStyle, styles.flipCard, styles.flipCardBack]}>
-						<Text style={styles.flipText}>
-							{this.props.question.answer}
-						</Text>
-					</Animated.View>
-				</TouchableOpacity>
-
-				<View>
+				<View style={styles.container}>
+					<TouchableOpacity onPress={() => this.flipCard()}>
+						<Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
+							<Text style={styles.flipText}>
+								{this.props.question.question}
+							</Text>
+						</Animated.View>
+						<Animated.View style={[backAnimatedStyle, styles.flipCard, styles.flipCardBack]}>
+							<Text style={styles.flipText}>
+								{this.props.question.answer}
+							</Text>
+						</Animated.View>
+					</TouchableOpacity>
+				</View>
+				<View style={styles.buttonArea}>
 					<TouchableOpacity onPress={() => this.flipCard()}>
 						<Text>Flip!</Text>
 					</TouchableOpacity>
@@ -124,6 +125,9 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		color: 'white',
 		fontWeight: 'bold',
+	},
+	buttonArea: {
+		paddingTop: 500,
 	}
 });
 
