@@ -77,6 +77,7 @@ class QuizContainer extends Component {
 				<View>
 					<QuizEnd quiz={quiz}
 									 restartQuiz={this.restartQuiz}
+									 saveQuizResults={this.saveQuizResults}
 									 navigateToDeckOverview={this.navigateToDeckOverview}/>
 				</View>
 				)

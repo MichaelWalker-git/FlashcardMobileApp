@@ -1,8 +1,17 @@
 import React, {Component} from 'react'
 import {Text, View} from "react-native";
 import TextButton from "./TextButton";
+import {clearLocationNotifications, setLocalNotification} from "../utils/helpers";
+import {addQuestionToDeck, saveResults} from "../utils/api";
 
 class QuizEnd extends Component {
+	componentDidMount(){
+		const quizObj = {quiz: this.props.quiz};
+		saveResults(this.props.quiz)
+			.then(clearLocationNotifications)
+				.then(setLocalNotification);
+
+	}
 
 	render() {
 		const score = this.props.quiz.scores[this.props.quiz.scores.length - 1].score;

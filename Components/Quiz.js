@@ -27,7 +27,6 @@ class Quiz extends Component {
 			inputRange: [0, 180],
 			outputRange: ['180deg', '360deg']
 		});
-		console.log(this.props, "!!!!!!")
 	}
 
 	flipCard() {

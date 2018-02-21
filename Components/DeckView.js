@@ -37,7 +37,6 @@ class DeckView extends Component {
 	}
 
 	deleteQuestion = (rowData) => {
-		console.log(rowData)
 	};
 
 	renderRow = (rowData) => {

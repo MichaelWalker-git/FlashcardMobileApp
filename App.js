@@ -9,6 +9,7 @@ import DeckView from "./Components/DeckView";
 import AddDeck from "./Components/AddDeck";
 import QuizContainer from "./Components/QuizContainer";
 import Notifications from "./Components/Notifications";
+import {setLocalNotification} from "./utils/helpers";
 
 const Tabs = TabNavigator({
 		Home: {
@@ -104,6 +105,10 @@ const MainNavigator = StackNavigator({
 });
 
 export default class App extends React.Component {
+	componentDidMount(){
+		setLocalNotification();
+	}
+
 	render() {
 		return (
 			<SafeAreaView style={styles.safeArea}>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import TextButton from "./TextButton";
 import {GetDeck, saveDeckTitle} from "../utils/api";
-import * as NavigationActions from "react-navigation";
 
 class AddDeck extends Component {
 	state = {

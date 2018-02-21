@@ -33,6 +33,14 @@ class Home extends Component {
 	}
 
 	render () {
+		let topScore;
+		if(this.state.decks.filter((deck) => deck.scores)){
+			console.log(this.state.decks.filter((deck) => deck.scores, "!!")
+			// const score = this.state.decks.scores.sort((a,b) => {
+			// 	return ((b.correct/b.totalNumber) - (a.correct/a.totalNumber));
+			// })[0];
+			// topScore = score.correct / score.totalNumber;
+		}
 		return <View>
 			<View style={styles.numOfDecksHeader}>
 				<Text style={styles.title}>{this.state.decks.length} Decks</Text>
@@ -46,7 +54,7 @@ class Home extends Component {
 											onPress={() => this.props.navigation.navigate('DeckView', {deck: item})}>
 												<Text>Number of Questions: {item.questions.length}</Text>
 												<Text>{item.title}</Text>
-												<Text>Best Score: 90%</Text>
+												{item.scores && <Text>{topScore}</Text>}
 											</TouchableOpacity>
 										</View>
 									)}
