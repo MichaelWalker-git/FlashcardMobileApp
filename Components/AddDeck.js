@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import TextButton from "./TextButton";
-import {saveDeckTitle} from "../utils/api";
+import {GetDeck, saveDeckTitle} from "../utils/api";
 import * as NavigationActions from "react-navigation";
 
 class AddDeck extends Component {
@@ -14,7 +14,9 @@ class AddDeck extends Component {
 	 */
 	saveDeck = () => {
 		saveDeckTitle({title: this.state.deckName}).then((response) => {
-			this.props.navigation.goBack();
+			return GetDeck(this.state.deckName).then((resp) => {
+				this.props.navigation.navigate('DeckView', {deck: resp});
+			})
 		});
 	};
 

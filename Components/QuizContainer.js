@@ -3,6 +3,7 @@ import {StatusBar, View} from "react-native";
 import Quiz from "./Quiz";
 import {Constants} from 'expo';
 import {purple} from "../utils/colors";
+import ErrorQuizPage from "./ErrorQuizPage";
 
 function QuizStatusBar({backgroundColor, ...props}){
 	return (
@@ -56,7 +57,7 @@ class QuizContainer extends Component {
 		const {quiz, questionIndex} = this.state;
 		return(
 			<View>
-				{quiz.questions ?
+				{quiz.questions && quiz.questions.length > 0 ?
 					<View>
 						<Quiz question={quiz.questions[questionIndex]}
 									addQuizPoint={this.addQuizPoint}
@@ -64,7 +65,7 @@ class QuizContainer extends Component {
 									title={quiz.title}/>
 					</View>
 				:
-					<QuizStatusBar backgroundColor={purple} barStyle='light-content'/>
+					<ErrorQuizPage/>
 				}
 			</View>
 		)
