@@ -8,14 +8,15 @@ import AddEditQuestion from "./Components/AddEditQuestion";
 import DeckView from "./Components/DeckView";
 import AddDeck from "./Components/AddDeck";
 import QuizContainer from "./Components/QuizContainer";
-import {GetAllDecks} from "./utils/api";
+import Notifications from "./Components/Notifications";
+import {setLocalNotification} from "./utils/helpers";
 
 const Tabs = TabNavigator({
 		Home: {
 			screen: Home,
 			navigationOptions: {
 				tabBarLabel: 'Home',
-				tabBarIcon: ({tintColor}) => <Ionicons name='ios-bookmarks'
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-home'
 																							 color={tintColor}
 																							 size={30}/>
 			}
@@ -27,6 +28,15 @@ const Tabs = TabNavigator({
 				tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square'
 																									color={tintColor}
 																									size={30}/>
+			}
+		},
+		Notifications: {
+			screen: Notifications,
+			navigationOptions: {
+				tabBarLabel: 'Notifications',
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-notifications'
+																							 color={tintColor}
+																							 size={30}/>
 			}
 		},
 	}, {
@@ -95,6 +105,10 @@ const MainNavigator = StackNavigator({
 });
 
 export default class App extends React.Component {
+	componentDidMount(){
+		setLocalNotification();
+	}
+
 	render() {
 		return (
 			<SafeAreaView style={styles.safeArea}>

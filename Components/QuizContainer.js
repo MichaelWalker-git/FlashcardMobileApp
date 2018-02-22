@@ -4,6 +4,8 @@ import Quiz from "./Quiz";
 import {Constants} from 'expo';
 import {purple} from "../utils/colors";
 import ErrorQuizPage from "./ErrorQuizPage";
+import QuizEnd from "./QuizEnd";
+import {GetDeck} from "../utils/api";
 
 function QuizStatusBar({backgroundColor, ...props}){
 	return (
@@ -18,33 +20,39 @@ class QuizContainer extends Component {
 		quiz: {
 			scores: [{date: '12/4/2018', score: {correct: 10, totalNumber: 15}}]
 		},
+		quizIndex: 0,
 		questionIndex: 0,
 	};
 
 	componentDidMount(){
 		const newQuizObj = this.props.navigation.state.params.quiz;
 		newQuizObj.scores = [];
-		newQuizObj.scores.push({date: new Date(), score: {correct: 0, totalNumber: newQuizObj.questions.length}});
-		this.setState({quiz: newQuizObj})
+		newQuizObj.scores.push({
+			date: new Date(),
+			score: {
+				correct: 0,
+				totalNumber: newQuizObj.questions.length
+			}
+		});
+		this.setState({
+			quiz: newQuizObj,
+			currentQuiz: newQuizObj.scores.length - 1,
+		})
 	}
 
 	addQuizPoint = () => {
-		this.setState((state) => {
-			const count = state.quiz.scores.score.correct + 1;
-			const newIdx = state.questionIndex +1;
-			const newQuiz = Object.assign({}, this.state.quiz);
-			newQuiz.scores.score.correct = count;
-			return {
-				...state,
-				quiz: newQuiz,
-				questionIndex: newIdx
-			}
+		const newQuestionIndex = this.state.questionIndex + 1;
+		const quizCopy = Object.assign({}, this.state.quiz);
+		quizCopy.scores[this.state.quizIndex].score.correct += 1;
+		this.setState({
+			questionIndex: newQuestionIndex,
+			quiz: quizCopy
 		})
 	};
 
 	decreaseQuizPoint = () => {
 		this.setState((state) => {
-			const newIdx = state.questionIndex +1;
+			const newIdx = state.questionIndex + 1;
 			return {
 				...state,
 				questionIndex: newIdx
@@ -52,9 +60,28 @@ class QuizContainer extends Component {
 		})
 	};
 
-	//TODO(michaelhuy): We shouldn't map, but we want to iterate each option.
+	navigateToDeckOverview = () => {
+		return GetDeck(this.state.quiz.title).then((response) => {
+			this.props.navigation.navigate('DeckView', {deck: response})
+		})
+	};
+
+	restartQuiz = () => {
+
+	};
+
 	render(){
 		const {quiz, questionIndex} = this.state;
+		if(quiz.questions && questionIndex >= quiz.questions.length) {
+			return (
+				<View>
+					<QuizEnd quiz={quiz}
+									 restartQuiz={this.restartQuiz}
+									 saveQuizResults={this.saveQuizResults}
+									 navigateToDeckOverview={this.navigateToDeckOverview}/>
+				</View>
+				)
+		}
 		return(
 			<View>
 				{quiz.questions && quiz.questions.length > 0 ?

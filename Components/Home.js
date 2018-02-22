@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {
 	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList
 } from "react-native";
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {GetAllDecks, RemoveDeck} from "../utils/api";
-import { List, ListItem } from "react-native-elements";
+import {GetAllDecks} from "../utils/api";
+import {white} from "../utils/colors";
+import RenderSeparator from "./RenderSeparator";
 
 
 function wp (percentage) {
@@ -32,95 +32,65 @@ class Home extends Component {
 		});
 	}
 
+	computeBestScore = (scores) => {
+		const topScore = scores.sort((a, b) => {
+			return ((b.correct / b.totalNumber) - (a.correct / a.totalNumber));
+		})[0];
+		return (<Text style={{color: 'red'}}>
+			{topScore.score.correct} / {topScore.score.totalNumber}
+			</Text>);
+	};
+
 	render () {
-		return <View>
-			<View style={styles.numOfDecksHeader}>
-				<Text style={styles.title}>{this.state.decks.length} Decks</Text>
-			</View>
-			{this.state.decks &&
-			<FlatList keyExtractor={(item, index) => index}
-								data={this.state.decks}
-								renderItem={({item}) => (
+		return (
+			<View style={styles.container}>
+				<Text style={{fontSize: 28}}>Let's Study Some Flashcards</Text>
+				<View style={styles.numOfDecksHeader}>
+					<Text style={styles.title}>{this.state.decks.length} Decks</Text>
+				</View>
+				{this.state.decks &&
+				<FlatList keyExtractor={(item, index) => index}
+									data={this.state.decks}
+									ItemSeparatorComponent={RenderSeparator}
+									renderItem={({item}) => (
 										<View style={styles.deckList}>
 											<TouchableOpacity key={item.title}
-											onPress={() => this.props.navigation.navigate('DeckView', {deck: item})}>
+																				onPress={() => this.props.navigation.navigate('DeckView', {deck: item})}>
+												<Text>Title: {item.title}</Text>
 												<Text>Number of Questions: {item.questions.length}</Text>
-												<Text>{item.title}</Text>
-												<Text>Best Score: 90%</Text>
+												{item.scores && <Text>Best Score: {this.computeBestScore(item.scores)} </Text>}
 											</TouchableOpacity>
 										</View>
 									)}
 				/>}
-			<Button
-				onPress={() => this.props.navigation.navigate('AddDeck')}
-				title="Add New Deck"
-				color="#841584"
-				accessibilityLabel="Add New Deck"/>
-			{/*<Carousel*/}
-			{/*ref={c => this._slider1Ref = c}*/}
-			{/*data={this.state.entries}*/}
-			{/*renderItem={this._renderItem}*/}
-			{/*inactiveSlideScale={0.94}*/}
-			{/*inactiveSlideOpacity={0.7}*/}
-			{/*containerCustomStyle={styles.slider}*/}
-			{/*contentContainerCustomStyle={styles.sliderContentContainer}*/}
-			{/*loop={true}*/}
-			{/*loopClonesPerSide={2}*/}
-			{/*autoplay={true}*/}
-			{/*autoplayDelay={500}*/}
-			{/*autoplayInterval={3000}*/}
-			{/*sliderWidth={sliderWidth}*/}
-			{/*itemWidth={itemWidth}*/}
-			{/*/>*/}
-			{/*<Pagination*/}
-			{/*dotsLength={this.state.entries.length}*/}
-			{/*activeDotIndex={this.state.slider1ActiveSlide}*/}
-			{/*containerStyle={styles.paginationContainer}*/}
-			{/*dotColor={'rgba(255, 255, 255, 0.92)'}*/}
-			{/*dotStyle={styles.paginationDot}*/}
-			{/*inactiveDotColor={styles.title.color}*/}
-			{/*inactiveDotOpacity={0.4}*/}
-			{/*inactiveDotScale={0.6}*/}
-			{/*carouselRef={this._slider1Ref}*/}
-			{/*tappableDots={!!this._slider1Ref}*/}
-			{/*/>*/}
-		</View>;
+				<Button
+					onPress={() => this.props.navigation.navigate('AddDeck')}
+					title="Add New Deck"
+					color="#841584"
+					accessibilityLabel="Add New Deck"/>
+			</View>
+		);
 	}
 }
 
 const styles = StyleSheet.create({
-	slide: { },
+	container: {
+		backgroundColor: white,
+		flex: 1
+	},
 	deckList: {
-		padding: 10
+		padding: 20,
 	},
 	numOfDecksHeader: {
 		justifyContent: 'center',
 		flexDirection: 'row',
 	},
 	title: {
-		color: '#1a1917',
+		color: 'black',
 		fontSize: 13,
 		fontWeight: 'bold',
 		letterSpacing: 0.5
 	},
-	slideInnerContainer: {
-		width: itemWidth,
-		height: slideHeight,
-		paddingHorizontal: itemHorizontalMargin,
-		paddingBottom: 18 // needed for shadow
-	},
-	sliderContentContainer: {
-		paddingVertical: 10 // for custom animation
-	},
-	paginationContainer: {
-		paddingVertical: 8
-	},
-	paginationDot: {
-		width: 8,
-		height: 8,
-		borderRadius: 4,
-		marginHorizontal: 8
-	}
 });
 
 export default Home;

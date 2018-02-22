@@ -40,7 +40,7 @@ export function RemoveDeck(title){
  * @param {string} title
  * @returns {*|Promise}
  */
-export function saveDeckTitle ({title}) {
+export function saveDeckTitle({title}) {
 	const starterDeck = {
 		title,
 		questions: [],
@@ -62,6 +62,20 @@ export function addQuestionToDeck ({title, card}) {
 			const data = JSON.parse(deck);
 			data[title].questions.push(card);
 			AsyncStorage.setItem(FLASHCARD_STORAGE_KEY, JSON.stringify(data));
+		});
+}
+
+/**
+ * Adds a card to a deck.
+ * @param {{title: string}} quiz
+ * @returns {Promise<*>|Promise<T>}
+ */
+export function saveResults (quiz) {
+	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
+		.then((deck) => {
+			const outsideObj = {[quiz.title]: quiz};
+			const newData = Object.assign(JSON.parse(deck), outsideObj);
+			AsyncStorage.setItem(FLASHCARD_STORAGE_KEY, JSON.stringify(newData));
 		});
 }
 
