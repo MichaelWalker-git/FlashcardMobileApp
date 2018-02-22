@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {StatusBar, View} from "react-native";
 import Quiz from "./Quiz";
 import {Constants} from 'expo';
-import {purple} from "../utils/colors";
-import ErrorQuizPage from "./ErrorQuizPage";
 import QuizEnd from "./QuizEnd";
 import {GetDeck} from "../utils/api";
 
@@ -67,32 +65,30 @@ class QuizContainer extends Component {
 	};
 
 	restartQuiz = () => {
-
+		this.props.navigation.navigate('QuizContainer', {quiz: this.state.quiz});
 	};
 
 	render(){
 		const {quiz, questionIndex} = this.state;
-		if(quiz.questions && questionIndex >= quiz.questions.length) {
+		if(quiz.questions && quiz.questions.length
+			&& questionIndex >= quiz.questions.length) {
 			return (
 				<View>
 					<QuizEnd quiz={quiz}
 									 restartQuiz={this.restartQuiz}
-									 saveQuizResults={this.saveQuizResults}
 									 navigateToDeckOverview={this.navigateToDeckOverview}/>
 				</View>
 				)
 		}
 		return(
 			<View>
-				{quiz.questions && quiz.questions.length > 0 ?
+				{quiz.questions && quiz.questions.length > 0 &&
 					<View>
 						<Quiz question={quiz.questions[questionIndex]}
 									addQuizPoint={this.addQuizPoint}
 									decreaseQuizPoint={this.decreaseQuizPoint}
 									title={quiz.title}/>
 					</View>
-				:
-					<ErrorQuizPage/>
 				}
 			</View>
 		)

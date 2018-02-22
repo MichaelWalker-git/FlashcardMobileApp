@@ -54,7 +54,7 @@ class Notifications extends Component {
 					<Picker
 						style={styles.picker}
 						selectedValue={this.state.selectedHour}
-						onValueChange={(itemValue) => this.setState({hour: itemValue})}>
+						onValueChange={(itemValue) => this.setState({selectedHour: itemValue})}>
 						{this.state.hours.map((hour) => (
 							<Picker.Item key={hour} value={hour} label={hour.toString()}/>
 						))}
@@ -62,7 +62,7 @@ class Notifications extends Component {
 					<Picker
 						style={styles.picker}
 						selectedValue={this.state.selectedMinute}
-						onValueChange={(itemValue) => this.setState({minute: itemValue})}>
+						onValueChange={(itemValue) => this.setState({selectedMinute: itemValue})}>
 						{this.state.minutes.map((min) => (
 							<Picker.Item key={min} value={min} label={min.toString()}/>
 						))}

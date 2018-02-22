@@ -56,9 +56,9 @@ class Home extends Component {
 										<View style={styles.deckList}>
 											<TouchableOpacity key={item.title}
 																				onPress={() => this.props.navigation.navigate('DeckView', {deck: item})}>
-												<Text>Title: {item.title}</Text>
-												<Text>Number of Questions: {item.questions.length}</Text>
-												{item.scores && <Text>Best Score: {this.computeBestScore(item.scores)} </Text>}
+												<Text><Text style={{fontWeight: 'bold'}}>Title:</Text> {item.title}</Text>
+												<Text><Text style={{fontWeight: 'bold'}}>Number of Questions:</Text> {item.questions.length}</Text>
+												{item.scores && <Text><Text style={{fontWeight: 'bold'}}>Best Score:</Text> {this.computeBestScore(item.scores)} </Text>}
 											</TouchableOpacity>
 										</View>
 									)}
