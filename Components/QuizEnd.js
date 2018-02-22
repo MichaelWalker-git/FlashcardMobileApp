@@ -3,6 +3,7 @@ import {Text, View} from "react-native";
 import TextButton from "./TextButton";
 import {clearLocationNotifications, setLocalNotification} from "../utils/helpers";
 import {addQuestionToDeck, saveResults} from "../utils/api";
+import {orange, purple, white} from "../utils/colors";
 
 class QuizEnd extends Component {
 	componentDidMount(){
@@ -10,7 +11,6 @@ class QuizEnd extends Component {
 		saveResults(this.props.quiz)
 			.then(clearLocationNotifications)
 				.then(setLocalNotification);
-
 	}
 
 	render() {
@@ -18,19 +18,21 @@ class QuizEnd extends Component {
 		const correct = score.correct;
 		const totalQuestions = score.totalNumber;
 		return (
-			<View>
+			<View style={{justifyContent: 'space-between'}}>
 				<View>
-					<Text>{this.props.quiz.title}</Text>
+					<Text style={{fontSize: 32, alignSelf: 'center'}}>{this.props.quiz.title}</Text>
+				</View>
+				<View style={{alignContent: 'center', paddingTop: 20, paddingBottom: 20}}>
+					<Text style={{fontSize: 16}}> {((correct / totalQuestions)* 100).toFixed(2)}% Correct</Text>
+					<Text style={{fontSize: 16}}> {correct} / {totalQuestions} Correct </Text>
 				</View>
 				<View>
-					<Text> {((correct / totalQuestions)* 100).toFixed(2)}% Correct</Text>
-					<Text> {correct} / {totalQuestions} Correct </Text>
-					<Text> 2nd Best Run </Text>
-				</View>
-				<View>
-					<TextButton onPress={() => this.props.navigateToDeckOverview()}>
+					<TextButton onPress={() => this.props.navigateToDeckOverview()}
+					style={{padding: 10, alignSelf: 'center', backgroundColor: orange}}>
 						Menu</TextButton>
-					<TextButton onPress={() => this.props.restartQuiz()}>
+					<TextButton onPress={() => this.props.restartQuiz()}
+											style={{padding: 10, alignSelf: 'center',
+												backgroundColor: purple, color: white}}>
 						Restart Quiz</TextButton>
 				</View>
 			</View>

@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {Text, TextInput, View} from "react-native";
+import {StyleSheet, Text, TextInput, View} from "react-native";
 import TextButton from "./TextButton";
 import {addQuestionToDeck, GetDeck} from "../utils/api";
+import {purple, white} from "../utils/colors";
 
 class AddEditQuestion extends Component {
 	state = {
@@ -23,23 +24,24 @@ class AddEditQuestion extends Component {
 	};
 
 	render() {
+		const quiz = this.props.navigation.state.params.quiz;
 		return (
-			<View>
-				<View>
-					<Text>Deck Title</Text>
-					<Text>{this.props.navigation.state.params.quiz.questions.length} Total Flashcards</Text>
+			<View style={styles.container}>
+				<View style={{alignItems: 'center', padding: 15}}>
+					<Text style={{fontSize: 32}}>{quiz.title}</Text>
+					<Text style={{fontSize: 18}}>{quiz.questions.length} Total Flashcards</Text>
 				</View>
-				<View>
-					<View>
-						<Text>Question...</Text>
+				<View style={styles.inputSection}>
+					<View style={styles.subInput}>
+						<Text style={{fontWeight: 'bold'}}>Question:</Text>
 						<TextInput placeholder='Placeholder for question...'
 											 clearButtonMode='unless-editing'
 											 autoFocus={true}
 											 onChangeText={(text) => this.setState({question: text})}/>
 					</View>
-					<View>
-						<Text>Answer:</Text>
-						<TextInput placeholder='Placeholder for Answer...'
+					<View style={styles.subInput}>
+						<Text style={{fontWeight: 'bold'}}>Answer:</Text>
+						<TextInput placeholder='Placeholder for answer...'
 											 clearButtonMode='unless-editing'
 											 onChangeText={(text) => this.setState({answer: text})}/>
 					</View>
@@ -51,6 +53,20 @@ class AddEditQuestion extends Component {
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+	inputSection: {
+		justifyContent: 'space-between',
+		padding: 10,
+	},
+	subInput: {
+		paddingTop: 5,
+		paddingBottom: 5,
+	}
+});
 
 export default AddEditQuestion;
 
