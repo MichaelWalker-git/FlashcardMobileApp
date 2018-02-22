@@ -16,7 +16,7 @@ const Tabs = TabNavigator({
 			screen: Home,
 			navigationOptions: {
 				tabBarLabel: 'Home',
-				tabBarIcon: ({tintColor}) => <Ionicons name='ios-bookmarks'
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-home'
 																							 color={tintColor}
 																							 size={30}/>
 			}
@@ -33,8 +33,8 @@ const Tabs = TabNavigator({
 		Notifications: {
 			screen: Notifications,
 			navigationOptions: {
-				tabBarLabel: 'Add Deck',
-				tabBarIcon: ({tintColor}) => <Ionicons name='ios-speedometer'
+				tabBarLabel: 'Notifications',
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-notifications'
 																							 color={tintColor}
 																							 size={30}/>
 			}
