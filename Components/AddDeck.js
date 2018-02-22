@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import TextButton from "./TextButton";
 import {GetDeck, saveDeckTitle} from "../utils/api";
+import {purple, white} from "../utils/colors";
 
 class AddDeck extends Component {
 	state = {
-		deckName: 'Test123',
+		deckName: 'Deck name...',
 	};
 
 	/**
@@ -21,19 +22,33 @@ class AddDeck extends Component {
 
 	render() {
 		return (
-			<View>
-				<Text>What is the title of your new deck?</Text>
-				<TextInput placeholder='Deck name' value={this.state.deckName}
+			<View style={styles.container}>
+				<Text style={{fontSize: 35, alignSelf: 'center'}}>New Deck Title:</Text>
+				<TextInput value={this.state.deckName}
 									 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
 									 autoFocus={true}
+									 autoCapitalize={'sentences'}
 									 clearButtonMode='unless-editing'
 									 onChangeText={(text) => this.setState({deckName: text})}/>
-				<TextButton onPress={this.saveDeck}>
-					<Text>Save this deck</Text>
+				<TextButton onPress={this.saveDeck}
+										style={styles.button}>
+					<Text style={{color: white}}>Save this deck</Text>
 				</TextButton>
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		backgroundColor: white,
+		flex: 1,
+		justifyContent: 'space-around'
+	},
+	button: {
+		padding: 10,
+		backgroundColor: purple
+	}
+});
 
 export default AddDeck
