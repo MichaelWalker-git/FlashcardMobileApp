@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, TextInput, View} from "react-native";
+import {KeyboardAvoidingView, StyleSheet, Text, TextInput, View} from "react-native";
 import TextButton from "./TextButton";
 import {addQuestionToDeck, GetDeck} from "../utils/api";
 import {purple, white} from "../utils/colors";
@@ -34,16 +34,20 @@ class AddEditQuestion extends Component {
 				<View style={styles.inputSection}>
 					<View style={styles.subInput}>
 						<Text style={{fontWeight: 'bold'}}>Question:</Text>
-						<TextInput placeholder='Placeholder for question...'
-											 clearButtonMode='unless-editing'
-											 autoFocus={true}
-											 onChangeText={(text) => this.setState({question: text})}/>
+						<KeyboardAvoidingView>
+							<TextInput placeholder='Placeholder for question...'
+												 clearButtonMode='unless-editing'
+												 autoFocus={true}
+												 onChangeText={(text) => this.setState({question: text})}/>
+						</KeyboardAvoidingView>
 					</View>
 					<View style={styles.subInput}>
 						<Text style={{fontWeight: 'bold'}}>Answer:</Text>
-						<TextInput placeholder='Placeholder for answer...'
+						<KeyboardAvoidingView>
+							<TextInput placeholder='Placeholder for answer...'
 											 clearButtonMode='unless-editing'
 											 onChangeText={(text) => this.setState({answer: text})}/>
+						</KeyboardAvoidingView>
 					</View>
 					<TextButton style={{padding: 10, alignContent: 'center'}} onPress={this.save}>
 						Save
