@@ -9,7 +9,9 @@ const FLASHCARD_STORAGE_KEY = 'Flashcards:Algorithms';
  */
 export function GetAllDecks() {
 	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
-		.then((response) => Object.values(JSON.parse(response)));
+		.then((response) => {
+			return Object.values(JSON.parse(response));
+		});
 }
 
 /**
