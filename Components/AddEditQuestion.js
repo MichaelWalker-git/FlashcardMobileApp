@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {KeyboardAvoidingView, StyleSheet, Text, TextInput, View} from "react-native";
 import TextButton from "./TextButton";
-import {addQuestionToDeck, GetDeck} from "../utils/api";
+import {addQuestionToDeck, getDeck} from "../utils/api";
 import {purple, white} from "../utils/colors";
 
 class AddEditQuestion extends Component {
@@ -17,7 +17,7 @@ class AddEditQuestion extends Component {
 			title: currentDeck.title
 		};
 		addQuestionToDeck(questionPostObject).then((response) => {
-			return GetDeck(currentDeck.title).then((response) => {
+			return getDeck(currentDeck.title).then((response) => {
 				this.props.navigation.navigate('DeckView', {deck: response})
 			})
 		});

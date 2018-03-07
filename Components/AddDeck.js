@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import TextButton from "./TextButton";
-import {GetDeck, saveDeckTitle} from "../utils/api";
+import {getDeck, saveDeckTitle} from "../utils/api";
 import {purple, white} from "../utils/colors";
 
 class AddDeck extends Component {
@@ -14,7 +14,7 @@ class AddDeck extends Component {
 	 */
 	saveDeck = () => {
 		saveDeckTitle({title: this.state.deckName}).then((response) => {
-			return GetDeck(this.state.deckName).then((resp) => {
+			return getDeck(this.state.deckName).then((resp) => {
 				this.props.navigation.navigate('DeckView', {deck: resp});
 			})
 		});

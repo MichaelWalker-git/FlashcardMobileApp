@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
 	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList
 } from "react-native";
-import {GetAllDecks} from "../utils/api";
+import {getAllDecks} from "../utils/api";
 import {white} from "../utils/colors";
 import RenderSeparator from "./RenderSeparator";
 
@@ -27,7 +27,7 @@ class Home extends Component {
 	};
 
 	componentDidMount(){
-		GetAllDecks().then((response) => {
+		getAllDecks().then((response) => {
 			this.setState({decks: response});
 		});
 	}
