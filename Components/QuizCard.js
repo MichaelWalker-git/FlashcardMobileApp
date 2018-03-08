@@ -63,8 +63,8 @@ class QuizCard extends React.Component {
 				</View>
 				<TouchableOpacity onPress={() => this.flipCard()}>
 					{this.props.cardHasBeenFlipped ?
-						<Text style={{fontWeight: 'bold'}}>Answer</Text> :
-						<Text style={{fontWeight: 'bold'}}>Question</Text>}
+						<Text style={{fontWeight: 'bold'}}>Answer (Click here)</Text> :
+						<Text style={{fontWeight: 'bold'}}>Question (Click here)</Text>}
 				</TouchableOpacity>
 			</View>
 		);
