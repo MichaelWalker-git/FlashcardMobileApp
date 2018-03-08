@@ -3,7 +3,7 @@ import {StatusBar, View} from "react-native";
 import Quiz from "./Quiz";
 import {Constants} from 'expo';
 import QuizEnd from "./QuizEnd";
-import {GetDeck} from "../utils/api";
+import {getDeck} from "../utils/api";
 
 function QuizStatusBar({backgroundColor, ...props}){
 	return (
@@ -59,7 +59,7 @@ class QuizContainer extends Component {
 	};
 
 	navigateToDeckOverview = () => {
-		return GetDeck(this.state.quiz.title).then((response) => {
+		return getDeck(this.state.quiz.title).then((response) => {
 			this.props.navigation.navigate('DeckView', {deck: response})
 		})
 	};
@@ -86,6 +86,7 @@ class QuizContainer extends Component {
 					<View>
 						<Quiz question={quiz.questions[questionIndex]}
 									addQuizPoint={this.addQuizPoint}
+									questionsLeft={quiz.questions.length - (questionIndex + 1)}
 									decreaseQuizPoint={this.decreaseQuizPoint}
 									title={quiz.title}/>
 					</View>

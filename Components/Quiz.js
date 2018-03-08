@@ -54,6 +54,7 @@ class Quiz extends Component {
 					<View style={styles.bottom}>
 						{this.state.cardHasBeenFlipped ?
 							<View style={styles.buttons}>
+								<Text>Remaining Questions: {this.props.questionsLeft}</Text>
 								<TextButton style={[styles.button, {backgroundColor: 'green'}]}
 														onPress={() => this.correctQuestion()}>
 									<Text>Correct</Text>
@@ -65,8 +66,6 @@ class Quiz extends Component {
 							</View> : <View/>}
 					</View>
 				</View>
-
-
 			</View>
 		);
 	}
@@ -88,8 +87,10 @@ const styles = StyleSheet.create({
 	buttonArea: {},
 	answerResponse: {},
 	buttons: {
+		position: 'absolute',
 		justifyContent: "space-between",
-		left: 150,
+		left: 100,
+		bottom: 50,
 	},
 	button: {
 		padding: 20,

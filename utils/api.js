@@ -7,7 +7,7 @@ const FLASHCARD_STORAGE_KEY = 'Flashcards:Algorithms';
  * @returns {*|Promise}
  * @constructor
  */
-export function GetAllDecks() {
+export function getAllDecks() {
 	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
 		.then((response) => {
 			return Object.values(JSON.parse(response));
@@ -19,7 +19,7 @@ export function GetAllDecks() {
  * @param {number} title
  * @export
  */
-export function GetDeck(title){
+export function getDeck(title){
 	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
 		.then((deck) => {
 			const item = JSON.parse(deck);
@@ -32,7 +32,7 @@ export function GetDeck(title){
  * @param {string} title
  * @export
  */
-export function RemoveDeck(title){
+export function removeDeck(title){
 	return AsyncStorage.removeItem(FLASHCARD_STORAGE_KEY, title);
 }
 
