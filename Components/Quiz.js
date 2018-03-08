@@ -87,8 +87,10 @@ const styles = StyleSheet.create({
 	buttonArea: {},
 	answerResponse: {},
 	buttons: {
+		position: 'absolute',
 		justifyContent: "space-between",
-		left: 150,
+		left: 100,
+		bottom: 50,
 	},
 	button: {
 		padding: 20,

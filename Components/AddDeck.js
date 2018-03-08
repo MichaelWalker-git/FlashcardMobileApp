@@ -13,11 +13,11 @@ class AddDeck extends Component {
 	 * Saves our new deck to local storage.
 	 */
 	saveDeck = () => {
-		saveDeckTitle({title: this.state.deckName}).then((response) => {
-			return getDeck(this.state.deckName).then((resp) => {
-				this.props.navigation.navigate('DeckView', {deck: resp});
-			})
-		});
+		saveDeckTitle({title: this.state.deckName})
+			.then(() => {
+					this.props.navigation.state.params.refresh();
+					this.props.navigation.goBack();
+				});
 	};
 
 	render() {

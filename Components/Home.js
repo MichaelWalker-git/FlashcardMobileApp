@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList
+	Text, View, StyleSheet, Dimensions, Button, TouchableOpacity, SectionList, FlatList, AsyncStorage
 } from "react-native";
 import {getAllDecks} from "../utils/api";
 import {white} from "../utils/colors";
@@ -26,11 +26,17 @@ class Home extends Component {
 		decks: [],
 	};
 
-	componentDidMount(){
+	componentDidMount() {
 		getAllDecks().then((response) => {
 			this.setState({decks: response});
 		});
 	}
+
+	refresh = () =>  {
+		getAllDecks().then((response) => {
+			this.setState({decks: response});
+		});
+	};
 
 	computeBestScore = (scores) => {
 		const topScore = scores.sort((a, b) => {
@@ -64,7 +70,7 @@ class Home extends Component {
 									)}
 				/>}
 				<Button
-					onPress={() => this.props.navigation.navigate('AddDeck')}
+					onPress={() => this.props.navigation.navigate('AddDeck', { refresh: () => this.refresh()}) }
 					title="Add New Deck"
 					color="#841584"
 					accessibilityLabel="Add New Deck"/>
