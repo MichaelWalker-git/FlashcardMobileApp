@@ -17,6 +17,7 @@ class AddDeck extends Component {
 			.then((response) => {
 				return getDeck(this.state.deckName).then((resp) => {
 					this.props.navigation.state.params.refresh();
+					this.setState({deckName: ''});
 					this.props.navigation.navigate('DeckView', {deck: resp});
 				})
 			});
