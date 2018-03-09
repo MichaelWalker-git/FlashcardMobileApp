@@ -12,27 +12,21 @@ const Tabs = TabNavigator({
 			screen: Home,
 			navigationOptions: {
 				tabBarLabel: 'Home',
-				tabBarIcon: ({tintColor}) => <Ionicons name='ios-home'
-																							 color={tintColor}
-																							 size={30}/>
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-home' color={tintColor} size={30}/>
 			}
 		},
 		AddDeck: {
 			screen: AddDeck,
 			navigationOptions: {
 				tabBarLabel: 'Add Deck',
-				tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square'
-																									color={tintColor}
-																									size={30}/>
+				tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square' color={tintColor} size={30}/>
 			}
 		},
 		Notifications: {
 			screen: Notifications,
 			navigationOptions: {
 				tabBarLabel: 'Notifications',
-				tabBarIcon: ({tintColor}) => <Ionicons name='ios-notifications'
-																							 color={tintColor}
-																							 size={30}/>
+				tabBarIcon: ({tintColor}) => <Ionicons name='ios-notifications' color={tintColor} size={30}/>
 			}
 		},
 	}, {

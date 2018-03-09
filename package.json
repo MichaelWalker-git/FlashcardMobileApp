@@ -1,5 +1,5 @@
 {
-  "name": "Flashcard_React_Native",
+  "name": "flashcard_react_native",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -20,11 +20,25 @@
   },
   "dependencies": {
     "auth0-js": "^9.3.2",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "expo": "^25.0.0",
+    "has-flag": "^3.0.0",
     "react": "^16.2.0",
     "react-native": "0.52.0",
     "react-native-snap-carousel": "^3.6.0",
     "react-native-swipeout": "^2.3.3",
-    "react-navigation": "^1.0.3"
-  }
+    "react-navigation": "^1.0.3",
+    "setprototypeof": "^1.1.0"
+  },
+  "description": "This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike-Tran/FlashcardMobileApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mike-Tran/FlashcardMobileApp/issues"
+  },
+  "homepage": "https://github.com/Mike-Tran/FlashcardMobileApp#readme"
 }

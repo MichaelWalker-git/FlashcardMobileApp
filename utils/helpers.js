@@ -49,22 +49,15 @@ export function clearLocationNotifications() {
 export function setLocalNotification(hours, minutes) {
 	let notificationHours;
 	let notificationMinutes;
-	const LocalNotificationTimes = AsyncStorage.getItem(NOTIFICATION_TIME).then(JSON.parse);
 
 	if(hours && minutes){
-		const notifyObj = {hours, minutes};
 		notificationHours = hours;
 		notificationMinutes = minutes;
-		AsyncStorage.getItem(NOTIFICATION_TIME, JSON.stringify(notifyObj));
-	} else if(LocalNotificationTimes) {
-		notificationHours = LocalNotificationTimes.hour;
-		notificationMinutes = LocalNotificationTimes.min;
 	} else {
-		const defaultHour = 20;
-		const defaultMin = 0;
-		notificationHours = defaultHour;
-		notificationMinutes = defaultMin;
+		notificationHours = 20;
+		notificationMinutes = 0;
 	}
+
 	AsyncStorage.getItem(NOTIFICATIONS_KEY)
 		.then(JSON.parse)
 		.then((data) => {
@@ -91,4 +84,6 @@ export function setLocalNotification(hours, minutes) {
 					})
 			}
 		})
+
+
 }
