@@ -28,16 +28,6 @@ export function getDeck(title){
 }
 
 /**
- * Removes a particular deck from the list.
- * @param {string} title
- * @export
- */
-export function removeDeck(title){
-	return AsyncStorage.removeItem(FLASHCARD_STORAGE_KEY, title);
-}
-
-
-/**
  * Creates a new deck entity with a template object.
  * @param {string} title
  * @returns {*|Promise}
