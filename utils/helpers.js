@@ -19,7 +19,7 @@ export function getDailyReminderValue(){
 export function createNotification() {
 	return {
 		title: `Study your flashcards!`,
-		body: `:wave Don't forget to practice today`,
+		body: `:wave: Don't forget to practice today`,
 		ios: {
 			sound: true,
 		},
