@@ -6,7 +6,7 @@ import {purple, white} from "../utils/colors";
 
 class AddDeck extends Component {
 	state = {
-		deckName: '',
+		deckName: 'Deck name...',
 	};
 
 	/**
@@ -17,7 +17,7 @@ class AddDeck extends Component {
 			.then((response) => {
 				return getDeck(this.state.deckName).then((resp) => {
 					this.props.navigation.state.params.refresh();
-					this.setState({deckName: ''});
+					this.setState({deckName: 'Deck name...'});
 					this.props.navigation.navigate('DeckView', {deck: resp});
 				})
 			});
@@ -27,9 +27,10 @@ class AddDeck extends Component {
 		return (
 			<View style={styles.container}>
 				<Text style={{fontSize: 35, alignSelf: 'center'}}>New Deck Title:</Text>
-				<TextInput placeholder='Deck name...'
+				<TextInput value={this.state.deckName}
 									 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
 									 autoFocus={true}
+									 clearTextOnFocus={true}
 									 autoCapitalize={'sentences'}
 									 clearButtonMode='unless-editing'
 									 onChangeText={(text) => this.setState({deckName: text})}/>
