@@ -18,7 +18,7 @@ Use the Expo application on your computer or phone. Follow the directions regard
 ## Usage example
 
 Preview of Application:
-![feb 22 2018 8_13 pm - edited](https://user-images.githubusercontent.com/11032490/36540828-6676e83e-180e-11e8-8c71-c806e9682573.gif)
+![feb 22 2018 8_13 pm - edited](https://user-images.githubusercontent.com/11032490/41389212-5009fe6e-6f44-11e8-8fda-4b86d41bc6bb.gif)
 
 ## Release History
 
