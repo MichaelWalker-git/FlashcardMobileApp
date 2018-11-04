@@ -23,6 +23,7 @@
     "babel-preset-react-native-stage-0": "^1.0.1",
     "expo": "^25.0.0",
     "has-flag": "^3.0.0",
+    "merge": "^1.2.1",
     "react": "^16.2.0",
     "react-native": "^0.56.0",
     "react-native-snap-carousel": "^3.6.0",
