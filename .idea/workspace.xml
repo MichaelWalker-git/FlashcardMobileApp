@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Components/AddEditQuestion.js" description="&#9;&#9;&#9;&#9;&#9;&lt;View&gt;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&lt;Text&gt;Question...&lt;/Text&gt;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&lt;..." line="34" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9c3a487-9737-4762-b6cd-a3cc2feea71f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f9c3a487-9737-4762-b6cd-a3cc2feea71f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -52,8 +50,8 @@
       <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="7114" column="51" selection-start-line="7114" selection-start-column="46" selection-end-line="7114" selection-end-column="51" />
+            <state relative-caret-position="296">
+              <caret line="7120" column="49" selection-start-line="7120" selection-start-column="49" selection-end-line="7120" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -187,7 +185,6 @@
         <option value="$PROJECT_DIR$/Components/SideBar.js" />
         <option value="$PROJECT_DIR$/Components/TextButton.js" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
         <option value="$PROJECT_DIR$/Components/RenderSeparator.js" />
         <option value="$PROJECT_DIR$/Components/ErrorQuizPage.js" />
@@ -206,6 +203,7 @@
         <option value="$PROJECT_DIR$/utils/helpers.js" />
         <option value="$PROJECT_DIR$/utils/api.js" />
         <option value="$PROJECT_DIR$/Components/AddDeck.js" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
       </list>
     </option>
   </component>
@@ -626,12 +624,12 @@
       <workItem from="1520485940588" duration="3356000" />
       <workItem from="1520568706966" duration="3925000" />
       <workItem from="1520618760875" duration="2628000" />
-      <workItem from="1541307842697" duration="300000" />
+      <workItem from="1541307842697" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94355000" />
+    <option name="totallyTimeSpent" value="94901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1029,8 +1027,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="7114" column="51" selection-start-line="7114" selection-start-column="46" selection-end-line="7114" selection-end-column="51" />
+        <state relative-caret-position="296">
+          <caret line="7120" column="49" selection-start-line="7120" selection-start-column="49" selection-end-line="7120" selection-end-column="49" />
         </state>
       </provider>
     </entry>
