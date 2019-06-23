@@ -19,18 +19,18 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "auth0-js": "^9.3.2",
+    "auth0-js": "^9.10.4",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "braces": "^3.0.2",
-    "expo": "^25.0.0",
+    "expo": "^25.1.2",
     "has-flag": "^3.0.0",
     "merge": "^1.2.1",
-    "react": "^16.2.0",
+    "react": "^16.8.6",
     "react-native": "^0.59.9",
-    "react-native-snap-carousel": "^3.6.0",
-    "react-native-swipeout": "^2.3.3",
-    "react-navigation": "^1.0.3",
-    "setprototypeof": "^1.1.0"
+    "react-native-snap-carousel": "^3.8.0",
+    "react-native-swipeout": "^2.3.6",
+    "react-navigation": "^1.6.1",
+    "setprototypeof": "^1.1.1"
   },
   "description": "This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).",
   "repository": {

@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9c3a487-9737-4762-b6cd-a3cc2feea71f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -45,26 +44,26 @@
       <file leaf-file-name="AddDeck.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Components/AddDeck.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="387">
+              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="13631" column="19" selection-start-line="13631" selection-start-column="19" selection-end-line="13631" selection-end-column="19" />
+            <state relative-caret-position="242">
+              <caret line="2084" column="34" selection-start-line="2084" selection-start-column="34" selection-end-line="2084" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            <state relative-caret-position="514">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -131,9 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>robots.txt</find>
-      <find>GetDecks</find>
-      <find>auth0</find>
       <find>auth0-js</find>
       <find>resetButtons</find>
       <find>addQuestionToDeck</find>
@@ -161,6 +157,9 @@
       <find>setLocalNotification</find>
       <find>co</find>
       <find>merge</find>
+      <find>&quot;braces&quot;: &quot;^2.3.1&quot;,</find>
+      <find>2.3.2</find>
+      <find>braces</find>
     </findStrings>
     <replaceStrings>
       <replace>numOfCards:</replace>
@@ -178,6 +177,8 @@
       <replace>getAllDecks</replace>
       <replace>removeDeck</replace>
       <replace>getDeck</replace>
+      <replace>&quot;braces&quot;: &quot;^3.0.2&quot;,</replace>
+      <replace>3.0.2</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -638,12 +639,12 @@
       <workItem from="1520568706966" duration="3925000" />
       <workItem from="1520618760875" duration="2628000" />
       <workItem from="1541307842697" duration="846000" />
-      <workItem from="1561332017816" duration="428000" />
+      <workItem from="1561332017816" duration="1187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95329000" />
+    <option name="totallyTimeSpent" value="96088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -658,7 +659,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753347" weight="0.32889965" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49753347" visible="true" weight="0.665641" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49753347" visible="true" weight="0.3323077" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1032,22 +1033,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Components/AddDeck.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="13631" column="19" selection-start-line="13631" selection-start-column="19" selection-end-line="13631" selection-end-column="19" />
+        <state relative-caret-position="387">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="514">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="2084" column="34" selection-start-line="2084" selection-start-column="34" selection-end-line="2084" selection-end-column="34" />
         </state>
       </provider>
     </entry>
