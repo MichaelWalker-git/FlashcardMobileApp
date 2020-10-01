@@ -4,8 +4,9 @@
   "private": true,
   "devDependencies": {
     "jest-expo": "^33.0.2",
+    "node-fetch": "^2.6.1",
     "react-native-scripts": "^2.0.1",
-    "react-test-renderer": "16.2.0"
+    "react-test-renderer": "^16.13.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -22,11 +23,11 @@
     "auth0-js": "^9.10.4",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "braces": "^3.0.2",
-    "expo": "^25.1.2",
+    "expo": "^39.0.3",
     "has-flag": "^3.0.0",
     "merge": "^1.2.1",
     "react": "^16.8.6",
-    "react-native": "^0.60.0",
+    "react-native": "^0.63.3",
     "react-native-snap-carousel": "^3.8.0",
     "react-native-swipeout": "^2.3.6",
     "react-navigation": "^1.6.1",
