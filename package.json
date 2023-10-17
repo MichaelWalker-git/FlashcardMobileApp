@@ -23,7 +23,7 @@
     "auth0-js": "^9.10.4",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "braces": "^3.0.2",
-    "expo": "^39.0.3",
+    "expo": "^49.0.13",
     "has-flag": "^3.0.0",
     "merge": "^1.2.1",
     "react": "^16.8.6",
